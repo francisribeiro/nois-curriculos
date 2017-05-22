@@ -7,8 +7,7 @@ import { TruncatePipe } from '../../../../pipes/truncate';
 
 @Component({
   selector: 'app-alunos',
-  templateUrl: './alunos.component.html',
-  styleUrls: ['./alunos.component.css']
+  templateUrl: './alunos.component.html'
 })
 export class AlunosComponent implements OnInit {
   alunos: Object;

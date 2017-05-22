@@ -8,7 +8,6 @@ import { ProfileComponent } from './components/admin/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddNewAlunoComponent } from './components/admin/questions/add-new-aluno/add-new-aluno.component';
 import { AddNewTurmaComponent } from './components/admin/questions/add-new-turma/add-new-turma.component';
-import { QuestionsComponent } from './components/admin/questions/questions.component';
 import { EditAlternativesComponent } from './components/admin/questions/edit-alternatives/edit-alternatives.component';
 import { EditAlunoComponent } from './components/admin/questions/edit-aluno/edit-aluno.component';
 import { AlunosComponent } from './components/admin/questions/alunos/alunos.component';
@@ -21,9 +20,7 @@ const APP_ROUTES: Routes = [
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'aluno/add', component: AddNewAlunoComponent, canActivate: [AuthGuard] },
     { path: 'turma/add', component: AddNewTurmaComponent, canActivate: [AuthGuard] },
-    { path: 'question', component: QuestionsComponent, canActivate: [AuthGuard] },
     { path: 'alunos/edit/:username', component: EditAlunoComponent, canActivate: [AuthGuard] },
-    { path: 'alternatives/edit/:id', component: EditAlternativesComponent, canActivate: [AuthGuard] },
     { path: 'alunos', component: AlunosComponent, canActivate: [AuthGuard] }
 
 

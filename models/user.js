@@ -71,6 +71,7 @@ module.exports.updateUser = (function (user, callback) {
     );
 });
 
+//Delete Users
 module.exports.deleteUser = (function (username, callback) {
     database.query(
         'DELETE from usuarios where username = ($1)', [username],
