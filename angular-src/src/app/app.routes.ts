@@ -6,11 +6,12 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { ProfileComponent } from './components/admin/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
-import { AddNewQuestionComponent } from './components/admin/questions/add-new-question/add-new-question.component';
-import { AddNewAlternativeComponent } from './components/admin/questions/add-new-alternative/add-new-alternative.component';
+import { AddNewAlunoComponent } from './components/admin/questions/add-new-aluno/add-new-aluno.component';
+import { AddNewTurmaComponent } from './components/admin/questions/add-new-turma/add-new-turma.component';
 import { QuestionsComponent } from './components/admin/questions/questions.component';
 import { EditAlternativesComponent } from './components/admin/questions/edit-alternatives/edit-alternatives.component';
-import { EditQuestionComponent } from './components/admin/questions/edit-question/edit-question.component';
+import { EditAlunoComponent } from './components/admin/questions/edit-aluno/edit-aluno.component';
+import { AlunosComponent } from './components/admin/questions/alunos/alunos.component';
 
 const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -18,11 +19,12 @@ const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-    { path: 'question/add', component: AddNewQuestionComponent, canActivate: [AuthGuard] },
-    { path: 'alternatives/add', component: AddNewAlternativeComponent, canActivate: [AuthGuard] },
+    { path: 'aluno/add', component: AddNewAlunoComponent, canActivate: [AuthGuard] },
+    { path: 'turma/add', component: AddNewTurmaComponent, canActivate: [AuthGuard] },
     { path: 'question', component: QuestionsComponent, canActivate: [AuthGuard] },
-    { path: 'question/edit/:id', component: EditQuestionComponent, canActivate: [AuthGuard] },
-    { path: 'alternatives/edit/:id', component: EditAlternativesComponent, canActivate: [AuthGuard] }
+    { path: 'alunos/edit/:username', component: EditAlunoComponent, canActivate: [AuthGuard] },
+    { path: 'alternatives/edit/:id', component: EditAlternativesComponent, canActivate: [AuthGuard] },
+    { path: 'alunos', component: AlunosComponent, canActivate: [AuthGuard] }
 
 
 ];

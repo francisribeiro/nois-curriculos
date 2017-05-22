@@ -16,12 +16,13 @@ import { ValidateService } from './services/validate.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { AddNewQuestionComponent } from './components/admin/questions/add-new-question/add-new-question.component';
-import { AddNewAlternativeComponent } from './components/admin/questions/add-new-alternative/add-new-alternative.component';
+import { AddNewAlunoComponent } from './components/admin/questions/add-new-aluno/add-new-aluno.component';
+import { AddNewTurmaComponent } from './components/admin/questions/add-new-turma/add-new-turma.component';
 import { QuestionsComponent } from './components/admin/questions/questions.component';
 import { TruncatePipe } from './pipes/truncate';
-import { EditQuestionComponent } from './components/admin/questions/edit-question/edit-question.component';
+import { EditAlunoComponent } from './components/admin/questions/edit-aluno/edit-aluno.component';
 import { EditAlternativesComponent } from './components/admin/questions/edit-alternatives/edit-alternatives.component';
+import { AlunosComponent } from './components/admin/questions/alunos/alunos.component';
 
 
 @NgModule({
@@ -33,12 +34,13 @@ import { EditAlternativesComponent } from './components/admin/questions/edit-alt
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    AddNewQuestionComponent,
-    AddNewAlternativeComponent,
+    AddNewAlunoComponent,
+    AddNewTurmaComponent,
     QuestionsComponent,
     TruncatePipe,
-    EditQuestionComponent,
-    EditAlternativesComponent
+    EditAlunoComponent,
+    EditAlternativesComponent,
+    AlunosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidateService } from '../../services/validate.service';
+import { ValidateService } from '../../../../services/validate.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html'
+  selector: 'app-add-new-aluno',
+  templateUrl: './add-new-aluno.component.html'
 })
-export class RegisterComponent implements OnInit {
+export class AddNewAlunoComponent implements OnInit {
   name: String;
   username: String;
   email: String;
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   type: String;
   selectUndefinedOptionValue: any;
   types = [
-    { id: 'professor', name: "Professor" }
+    { id: 'aluno', name: "Aluno" }
   ];
 
   constructor(
@@ -53,11 +53,11 @@ export class RegisterComponent implements OnInit {
     // Register users
     this.authService.registerUser(user).subscribe(data => {
       if (data.status == "success") {
-        this.flashMessage.show('Agora você está registrado!', { cssClass: 'alert-success', timeout: 3000 });
-        this.router.navigate(['/login']);
+        this.flashMessage.show('Aluno registrado com sucesso!', { cssClass: 'alert-success', timeout: 3000 });
+        this.router.navigate(['/alunos']);
       } else {
-        this.flashMessage.show('Algo deu errado ao se registrar!', { cssClass: 'alert-danger', timeout: 3000 });
-        this.router.navigate(['/register']);
+        this.flashMessage.show('Algo deu errado ao registrar o aluno!', { cssClass: 'alert-danger', timeout: 3000 });
+        this.router.navigate(['/aluno/add']);
       }
     });
   }

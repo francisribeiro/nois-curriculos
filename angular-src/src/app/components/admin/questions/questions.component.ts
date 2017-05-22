@@ -8,11 +8,10 @@ import { TruncatePipe } from '../../../pipes/truncate';
 
 @Component({
   selector: 'app-questions',
-  templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css']
+  templateUrl: './questions.component.html'
 })
 export class QuestionsComponent implements OnInit {
-  questions: Object;
+  alunos: Object;
 
   constructor(
     private validateService: ValidateService,
@@ -22,8 +21,9 @@ export class QuestionsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.getAllQuestions().subscribe(data => {
-      this.questions = data.data;
+    this.authService.getAllUsers('professor').subscribe(data => {
+      this.alunos = data.data;
+      console.log(data.data);
     }, err => {
       console.log(err);
       return false;

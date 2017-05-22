@@ -13,6 +13,14 @@ export class ValidateService {
       return true;
   }
 
+  // Validando os campos de registro
+  validateEditUser(user) {
+    if (!user.name || !user.username || !user.email || !user.type)
+      return false;
+    else
+      return true;
+  }
+
   // Validando email
   validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

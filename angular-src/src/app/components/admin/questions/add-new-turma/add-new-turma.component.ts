@@ -6,11 +6,10 @@ import { AuthService } from '../../../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-new-alternative',
-  templateUrl: './add-new-alternative.component.html',
-  styleUrls: ['./add-new-alternative.component.css']
+  selector: 'app-add-new-turma',
+  templateUrl: './add-new-turma.component.html'
 })
-export class AddNewAlternativeComponent implements OnInit {
+export class AddNewTurmaComponent implements OnInit {
   questionTitle: String;
   question: Object;
   questionId: String;

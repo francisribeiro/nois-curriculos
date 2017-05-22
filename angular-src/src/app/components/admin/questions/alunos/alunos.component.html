@@ -7,7 +7,7 @@
 
       <div class="col-md-2">
         <div class="dropdown create">
-          <a type="button" [routerLink]="['/question/add']" class="btn btn-primary dropdown-toggle">Inserir Nova Questão</a>
+          <a type="button" [routerLink]="['/aluno/add']" class="btn btn-primary dropdown-toggle">Inserir Novo Aluno</a>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
             <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Turmas
             <span class="badge">12</span>
           </a>
-          <a type="button" [routerLink]="['/alunos/list']" class="list-group-item">
+          <a type="button" [routerLink]="['/alunos/']" class="list-group-item">
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Alunos
             <span class="badge">2</span>
           </a>
@@ -64,7 +64,7 @@
                   <td><b>{{aluno.name}}</b></td>
                   <td><a class="btn btn-info" type="button" [routerLink]="['view', aluno.username]">Visualizar</a>
                     <a class="btn btn-success" type="button" [routerLink]="['edit', aluno.username]">Editar</a>
-                    <a class="btn btn-danger" type="button" [routerLink]="['delete', aluno.username]" href="#">Apagar</a></td>
+                    <a class="btn btn-danger" type="button" [routerLink]="['/dashboard']"  href="#" (click)="delete($event, aluno.username)">Apagar</a></td>
                 </tr>
               </table>
             </div>
@@ -74,4 +74,3 @@
     </div>
   </div>
 </section>
-

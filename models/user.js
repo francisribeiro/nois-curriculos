@@ -14,7 +14,7 @@ const User = module.exports = userSchema;
 
 // Pega um usuário pelo Username
 module.exports.getUserByUsername = (function (username, callback) {
-    const query = database.query(`SELECT * FROM usuario WHERE username = ($1)`, [username], callback);
+    const query = database.query(`SELECT * FROM usuarios WHERE username = ($1)`, [username], callback);
 });
 
 // Faz a comparação dos passwords
@@ -32,26 +32,48 @@ module.exports.addUser = (function (newUser, callback) {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
             newUser.password = hash;
-            database.query('INSERT INTO usuario(nome, email, username, password, tipo) values($1, $2, $3, $4, $5)', 
-            [newUser.name, newUser.email, newUser.username, newUser.password, newUser.type], callback);
+            database.query('INSERT INTO usuarios(name, email, username, password, type) values($1, $2, $3, $4, $5)', [newUser.name, newUser.email, newUser.username, newUser.password, newUser.type], callback);
         });
     });
 });
 
 // Count users
-module.exports.countUsers = (function(callback){
+module.exports.countUsers = (function (callback) {
     database.query(
-        'SELECT count(*) from usuario',
+        'SELECT count(*) from usuarios',
         '',
         callback
-    );  
+    );
 });
 
 // Count users by Type
-module.exports.countUsersByType = (function(type, callback){
+module.exports.countUsersByType = (function (type, callback) {
     database.query(
-        'SELECT count(*) from usuario where tipo = $1',
-        [type],
+        'SELECT count(*) from usuarios where type = $1', [type],
+        callback
+    );
+});
+
+// List All Users
+module.exports.listAllUsers = (function (type, callback) {
+    database.query(
+        'SELECT * from usuarios where type = $1', [type],
+        callback
+    );
+});
+
+
+// Update User
+module.exports.updateUser = (function (user, callback) {
+    database.query(
+        'UPDATE usuarios set name = $1, email = $2 WHERE username = $3', [user.name, user.email, user.username],
+        callback
+    );
+});
+
+module.exports.deleteUser = (function (username, callback) {
+    database.query(
+        'DELETE from usuarios where username = ($1)', [username],
         callback
     );
 });

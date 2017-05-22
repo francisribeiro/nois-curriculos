@@ -4,7 +4,7 @@ const secret = 'yoursecret';
 // Cria uma configuração para o comportamento do pooling e opções do cliente.
 var config = {
     user: 'admin',
-    database: 'nois-simulados',
+    database: 'nois-curriculos',
     password: 'admin',
     host: 'localhost',
     port: 5432,

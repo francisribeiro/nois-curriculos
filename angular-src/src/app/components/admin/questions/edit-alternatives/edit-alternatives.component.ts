@@ -8,8 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-alternatives',
-  templateUrl: './edit-alternatives.component.html',
-  styleUrls: ['./edit-alternatives.component.css']
+  templateUrl: './edit-alternatives.component.html'
 })
 export class EditAlternativesComponent implements OnInit {
   questionTitle: String;

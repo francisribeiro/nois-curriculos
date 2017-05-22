@@ -59,6 +59,12 @@ export class AuthService {
     localStorage.clear();
   }
 
+  getAllUsers(type) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(`http://localhost:3000/users/list/${type}`, { headers: headers })
+      .map(res => res.json());
+  }
 
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,26 +92,25 @@ export class AuthService {
       .map(res => res.json());
   }
 
-  getAllQuestions() {
+
+ getUserByUsername(username) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get(`http://localhost:3000/questions/list`, { headers: headers })
+    return this.http.get(`http://localhost:3000/users/u-s/${username}`, { headers: headers })
       .map(res => res.json());
   }
 
-
- getQuestionById(id) {
+  updateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get(`http://localhost:3000/questions/q-s/${id}`, { headers: headers })
+    return this.http.put(`http://localhost:3000/users/`, user, { headers: headers })
       .map(res => res.json());
   }
 
-  updateQuestion(question) {
+  deleteUser(username) {
     let headers = new Headers();
-    this.questionTitle = question.question;
     headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:3000/questions/', question, { headers: headers })
+    return this.http.delete(`http://localhost:3000/users/u/${username}`,{ headers: headers })
       .map(res => res.json());
   }
 
